@@ -37,7 +37,7 @@ function App() {
       setNotes(data);
     } catch {
       setError(true);
-      toast.error("دریافت یادداشت‌ها ناموفق بود");
+      toast.error("Failed to load notes");
     } finally {
       setLoading(false);
     }
@@ -56,7 +56,7 @@ function App() {
       } catch {
         if (!ignore) {
           setError(true);
-          toast.error("دریافت یادداشت‌ها ناموفق بود");
+          toast.error("Failed to load notes");
         }
       } finally {
         if (!ignore) {
@@ -98,7 +98,7 @@ function App() {
     e.preventDefault();
 
     if (!title.trim() || !content.trim()) {
-      toast.error("عنوان و متن یادداشت را وارد کنید");
+      toast.error("Please enter a title and content");
       return;
     }
 
@@ -110,19 +110,19 @@ function App() {
           title: title.trim(),
           content: content.trim(),
         });
-        toast.success("یادداشت ویرایش شد");
+        toast.success("Note updated successfully");
       } else {
         await createNote({
           title: title.trim(),
           content: content.trim(),
         });
-        toast.success("یادداشت جدید ایجاد شد");
+        toast.success("Note created successfully");
       }
 
       closeForm();
       await fetchNotes();
     } catch {
-      toast.error("ذخیره یادداشت ناموفق بود");
+      toast.error("Failed to save note");
     } finally {
       setSaving(false);
     }
@@ -130,7 +130,7 @@ function App() {
 
   const handleDelete = async (note: Note) => {
     const confirmed = window.confirm(
-      `آیا از حذف یادداشت «${note.title}» !مطمئن هستید؟`,
+      `Are you sure you want to delete "${note.title}"?`,
     );
 
     if (!confirmed) return;
@@ -139,9 +139,9 @@ function App() {
       await deleteNote(note.id);
       setNotes((prev) => prev.filter((item) => item.id !== note.id));
       setSelectedNote(null);
-      toast.success("یادداشت حذف شد");
+      toast.success("Note deleted successfully");
     } catch {
-      toast.error("حذف یادداشت ناموفق بود");
+      toast.error("Failed to delete note");
     }
   };
 
@@ -158,7 +158,11 @@ function App() {
     );
 
   const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString("fa-IR");
+    return new Date(date).toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    });
   };
 
   return (

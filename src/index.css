@@ -1,0 +1,11 @@
+html {
+  direction: ltr;
+}
+
+body {
+  direction: ltr;
+}
+
+* {
+  box-sizing: border-box;
+}

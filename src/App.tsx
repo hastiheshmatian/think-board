@@ -167,7 +167,34 @@ function App() {
 
   return (
     <div className="app">
-      <Toaster position="top-center" />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: "#ffffff",
+            color: "#25243a",
+            border: "1px solid #e8e7f0",
+            borderRadius: "12px",
+            padding: "14px 18px",
+            fontSize: "14px",
+            fontFamily: "inherit",
+            boxShadow: "0 8px 24px rgba(35, 30, 70, 0.08)",
+          },
+          success: {
+            iconTheme: {
+              primary: "#6c63ff",
+              secondary: "#ffffff",
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: "#e5484d",
+              secondary: "#ffffff",
+            },
+          },
+        }}
+      />
 
       <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
       <main className="main">

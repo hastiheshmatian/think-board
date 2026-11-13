@@ -215,12 +215,6 @@ button {
   font-size: 14px;
 }
 
-.welcome-icon {
-  font-size: 75px;
-  color: #a39af3;
-  margin-right: 25px;
-}
-
 .notes-header {
   display: flex;
   justify-content: space-between;
@@ -312,10 +306,6 @@ button {
   font-size: 12px;
 }
 
-.footer span {
-  color: #6558e8;
-}
-
 .mobile-menu {
   display: none;
   background: transparent;
@@ -369,11 +359,6 @@ button {
     font-size: 25px;
   }
 
-  .welcome-icon {
-    font-size: 45px;
-    margin-right: 0;
-  }
-
   .notes-header {
     align-items: flex-start;
     flex-direction: column;
@@ -393,10 +378,6 @@ button {
 }
 
 @media (max-width: 400px) {
-  .welcome-icon {
-    display: none;
-  }
-
   .welcome h1 {
     font-size: 22px;
   }

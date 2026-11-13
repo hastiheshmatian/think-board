@@ -225,8 +225,6 @@ function App() {
                 Keep your ideas organized, all in one place.
               </p>
             </div>
-
-            <div className="welcome-icon">✦</div>
           </div>
 
           <div className="notes-header">
@@ -302,9 +300,7 @@ function App() {
           )}
         </section>
 
-        <footer className="footer">
-          Made for your thoughts <span>✦</span>
-        </footer>
+        <footer className="footer">Made for your thoughts</footer>
       </main>
 
       {showForm && (
